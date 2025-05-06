@@ -10,6 +10,7 @@ public class VariableDeclaration {
         int e = 10, f = 12, g = 15;
         boolean d;
         double pi;
+        
     }
 
 }
