@@ -9,9 +9,16 @@ public class TernaryOperator {
      * if not, it moves to the final expression
      */
     public static void main(String[] args) {
-        int denim = 0; //initialized
+       //mostly used for absolute values
+       int i = 10;
 
-        int ratio = denim == 0 ? 1 : denim * 10; // first expression is eval
-        System.out.println(ratio);
+       int k = i < 0 ? 10 : 10;
+       System.out.println(k);
+
+       int j = 10;
+
+       int h = j == 9 ? 1 : -10;
+       System.out.println(h);
+       
     }
 }
