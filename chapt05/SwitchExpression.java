@@ -4,6 +4,7 @@ public class SwitchExpression {
     /* demonstrating how switch expression works in java */
     public static void main(String[] args) {
         int i;
+        
 
         for(i = 0; i < 6; i++)
             switch(i) {
