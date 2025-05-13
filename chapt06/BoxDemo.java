@@ -1,6 +1,6 @@
 package chapt06;
 
-class Box {
+class Boxable {
     double width;
     double height;
     double length;
@@ -8,7 +8,7 @@ class Box {
 
 public class BoxDemo {
     public static void main(String[] args) {
-        Box mybox = new Box();
+        Boxable mybox = new Boxable();
         double vol;
 
         /* assigning values to the instance variables of Box 
