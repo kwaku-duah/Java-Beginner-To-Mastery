@@ -28,6 +28,7 @@ public class ConstructorExample {
      }
 
      public static void main(String[] args) {
+        
         //Once these objects have being made, they are initialized to the given values
         ConstructorExample box1 = new ConstructorExample();
         ConstructorExample box2 = new ConstructorExample();
