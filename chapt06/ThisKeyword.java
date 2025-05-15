@@ -21,4 +21,7 @@ public class ThisKeyword {
         this. height = height;
         this.depth = depth;
     }
+    public static void main(String[] args) {
+        
+    }
 }
