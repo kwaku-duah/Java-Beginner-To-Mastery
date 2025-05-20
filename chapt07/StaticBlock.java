@@ -36,8 +36,19 @@ public class StaticBlock {
          * so ideally, I would have created another call to make this code 
          * modular but it wont work
          */
-        public static void main(String[] args) {
-            metha(42);
-        }
-}
+//         public static void main(String[] args) {
+//             metha(42);
+//         }
+ }
+
+
+ /*use a static method outside of the class it is defined
+  * you simply call the classname followed by dot operator and method name
+   */
+
+   class WillWork{
+    public static void main(String[] args) {
+        StaticBlock.metha(42);
+    }
+   }
 
