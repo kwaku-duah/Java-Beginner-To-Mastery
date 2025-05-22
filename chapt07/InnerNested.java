@@ -14,5 +14,30 @@ public class InnerNested {
      * for a static class to access members of the enclosing class that are 
      * non-static, it must do through objects. static enclosed cannot access non
      * -static members of the parent class
+     * 
+     * demonstration of inner classes structure
      */
+
+     int outer = 100;
+
+     //inner class
+     class Inner {
+        void display() {
+            System.out.println("value of outer, testing to see if it has access " + outer );
+        }
+     }
+
+     void Test(){
+        Inner inner = new Inner();
+        inner.display();
+     }
+
+}
+
+class TryingFirst {
+    public static void main(String[] args) {
+        InnerNested obj = new InnerNested();
+
+        obj.Test();
+    }
 }
