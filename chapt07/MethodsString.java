@@ -21,7 +21,7 @@ public class MethodsString {
         } else System.out.println("myString1 != myString2");
 
         while( myString1.equals(myString3)) {
-            System.out.println("they are equal");
+            System.out.println("myString1 == myString3");
             break;
             
         }
