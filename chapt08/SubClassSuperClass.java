@@ -79,7 +79,7 @@ class WeightBox extends SubClassSuperClass {
 
 // Creating another subclass
 class Shipping extends WeightBox {
-    /*this is expected to have traits of WeightBox and SubClassSuperClass
+    /*this is expected to have traits of WeightBox and SubClassSuperClass(Shipping)
      * 
      */
     double costs;
