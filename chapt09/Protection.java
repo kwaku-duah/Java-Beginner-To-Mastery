@@ -13,7 +13,8 @@ public class Protection {
 
         System.out.println(n);
         
-        // System.out.println(n_pri); cant acess is private
+        //same class so n_pri can be accessed
+        System.out.println(n_pri);
 
         System.out.println(n_pro);
 
