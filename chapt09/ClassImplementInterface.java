@@ -15,4 +15,11 @@ public class ClassImplementInterface implements ExtendInterface {
     public void meth3() {
         System.out.println("Satisfied method 3 implementation");
     }
+
+    public static void main(String[] args) {
+        ClassImplementInterface obj = new ClassImplementInterface();
+        obj.meth1();
+        obj.meth2();
+        obj.meth3();
+    }
 }
