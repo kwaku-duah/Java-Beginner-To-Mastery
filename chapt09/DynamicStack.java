@@ -41,7 +41,7 @@ class Works {
         }
 
         for (i = 0; i < 10; i++){
-            System.out.println(mystack.pop());
+            System.out.println("removing from a stack" + mystack.pop());
         }
         
     }
