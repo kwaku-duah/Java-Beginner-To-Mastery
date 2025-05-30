@@ -30,7 +30,7 @@ class ExceptionDemo  {
 
     public static void main(String[] args) {
         try{
-            demoClass(20);
+            demoClass(1);
             demoClass(15);
         } catch(MyException e) {
            System.out.println("Caught " + e);
