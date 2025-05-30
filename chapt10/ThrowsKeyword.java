@@ -19,4 +19,19 @@ public class ThrowsKeyword {
     // }
 
     // the above wont work
+
+    static void throwsDemo() throws IllegalArgumentException {
+        System.out.println("Inside throws Demo");
+        throw new IllegalArgumentException("Holding the error cooly");
+    }
+
+    public static void main(String[] args) {
+        /* for main to be able to work with it, it must have a try catch block */
+        try {
+            throwsDemo();
+        } catch(IllegalArgumentException e) {
+            String  msg = e.getMessage();
+            System.out.println(msg);
+        }
+    }
 }
