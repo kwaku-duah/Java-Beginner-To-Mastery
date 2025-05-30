@@ -1,0 +1,36 @@
+Exception handling is a vital aspect of every programming language
+In Java the mother class that handles errors is THROWABLE
+throwable class has two subclasses that leads all all error handling
+Exception and Error subclasses
+exception handling has many default classes, but it is also sublcassed by
+runtime exception. There are two forms of error,
+checked and unchecked, checked is one that is checked during compile time whereas
+unchecked are exceptions that occur at runtime
+
+Exception handling uses five keywords: try, catch, throw, throws and finally
+try block to monitor for an exception, catch statements could be multiple
+throw is used to manually throw an error and then  throws is used in methods to 
+throw error potential errors in methods, used in method declarations
+finally is used for code block that must be executed after try block
+
+Takes the format:
+try {
+    //block being monitored
+}
+
+catch(ExceptionType obj) {
+    //exception handler for exception type
+}
+
+finally {
+    code that should be executed after try
+}
+
+class {
+    body
+    ##throw new IllegalArgumentException("...")
+}
+
+public int checkAge ##throws IOException {
+
+}
