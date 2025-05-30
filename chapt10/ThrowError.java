@@ -4,11 +4,11 @@ public class ThrowError {
     /*throw error */
     static void demoproc() {
         try {
-            throw new NullPointerException();
+            throw new NullPointerException("Points to nothing");
 
         } catch(NullPointerException e) {
-            System.out.println("Held " + e);
-            throw e;
+            String msg = e.getMessage();
+            System.out.println(msg);
         } 
     }
 
@@ -16,7 +16,7 @@ public class ThrowError {
         try {
             demoproc();
         } catch(NullPointerException e) {
-            System.out.println("Recaught it");
+            e.getMessage();
         }
     }
 }
