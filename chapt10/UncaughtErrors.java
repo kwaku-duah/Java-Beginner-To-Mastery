@@ -7,7 +7,7 @@ public class UncaughtErrors {
         int a = 0;
         System.out.println(d/a);
 
-        //uncaugherrors
+        //uncaughterrors
     }
     
 }
