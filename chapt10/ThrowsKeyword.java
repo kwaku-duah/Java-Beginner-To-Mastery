@@ -9,4 +9,14 @@ public class ThrowsKeyword {
      * //body of method
      * }
      */
+    // static void demo(){
+    //     System.out.println("inside demo");
+    //     throw new IllegalArgumentException();
+    // }
+
+    // public static void main(String[] args) {
+    //     demo();
+    // }
+
+    // the above wont work
 }
