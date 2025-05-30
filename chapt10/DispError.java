@@ -16,6 +16,7 @@ public class DispError {
              c = r.nextInt();
 
              a = 100 / (b/c);
+             
         } catch (ArithmeticException e) {
             System.out.println("Printing out to see it " + e);
             a = 0;
