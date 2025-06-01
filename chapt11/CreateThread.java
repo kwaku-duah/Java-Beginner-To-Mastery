@@ -13,6 +13,20 @@ public class CreateThread implements Runnable {
     }
 
 
+    public void run() {
+        try {
+            for (int i = 5; i > 0; i--) {
+                System.out.println("Child Threads " + i);
+                Thread.sleep(500);
+            }
+        } catch(InterruptedException e) {
+            System.out.println("Interrupted");
+        }
+        System.out.println("exiting child thread");
+    }
+}
+
+
 class DemoThread {
     public static void main(String[] args) {
         CreateThread nt = new CreateThread();
@@ -28,18 +42,6 @@ class DemoThread {
             System.out.println(e);
         }
         System.out.println("Exit main thread");
-    }
-}
-    public void run() {
-        try {
-            for (int i = 5; i > 0; i--) {
-                System.out.println("Child Threads " + i);
-                Thread.sleep(500);
-            }
-        } catch(InterruptedException e) {
-            System.out.println("Interrupted");
-        }
-        System.out.println("exiting child thread");
     }
 }
 
