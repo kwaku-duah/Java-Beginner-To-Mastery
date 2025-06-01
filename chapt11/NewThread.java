@@ -6,8 +6,7 @@ public class NewThread extends Thread {
     Thread t;
     
     NewThread(){
-        t = new Thread(this, "Child Thread");
-        System.out.println("Child thread starts");
+        super("Demo");
     }
 
     //override the run method
@@ -27,7 +26,7 @@ public class NewThread extends Thread {
 class ExtendThreads{
     public static void main(String[] args) {
         NewThread nt = new NewThread();
-        nt.t.start();
+        nt.start();
 
        try {
          for (int i = 5; i > 0; i--){
