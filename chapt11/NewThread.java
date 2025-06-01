@@ -8,6 +8,7 @@ public class NewThread extends Thread {
     NewThread(){
         super("Demo");
     }
+    
 
     //override the run method
     public void run() {
@@ -15,6 +16,9 @@ public class NewThread extends Thread {
             for (int i= 5; i > 0; i--) {
                 System.out.println("Child threads " + i);
                 Thread.sleep(500);
+                System.out.println("Thread name: " + getName());
+
+                
             }
         } catch(InterruptedException e) {
             System.out.println("Thread has been intercepted " + e);
