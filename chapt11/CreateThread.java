@@ -8,18 +8,32 @@ public class CreateThread implements Runnable {
     Thread t;
 
     CreateThread() {
-        t = new Thread(this, "ThisThread");
-        System.out.println("details about thread" + t);
+        t = new Thread(this, "ChildThread");
+        System.out.println("details about child thread" + t);
     }
 
-    public void run() {
-        //todo implementation
-    }
 
+class DemoThread {
     public static void main(String[] args) {
+        CreateThread nt = new CreateThread();
+
+        nt.t.start(); //made an instance of our custom thread and started it
+
         try {
             for (int i = 5; i > 0; i--) {
-                System.out.println("Threads " + i);
+                System.out.println("Main thread " + i);
+                Thread.sleep(1000);
+            }
+        }catch(InterruptedException e){
+            System.out.println(e);
+        }
+        System.out.println("Exit main thread");
+    }
+}
+    public void run() {
+        try {
+            for (int i = 5; i > 0; i--) {
+                System.out.println("Child Threads " + i);
                 Thread.sleep(500);
             }
         } catch(InterruptedException e) {
@@ -28,3 +42,6 @@ public class CreateThread implements Runnable {
         System.out.println("exiting child thread");
     }
 }
+
+
+//demonstration of two parts of a program using concurrent threads
