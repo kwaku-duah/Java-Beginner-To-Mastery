@@ -5,16 +5,39 @@ public class Q {
     correctly
      */
 
+     //implementing it rightly
      int n;
+     boolean valueSet = false;
 
      synchronized int get(){
+
+        while(!valueSet) {
+            try{
+                wait();
+            }catch(InterruptedException e) {
+                System.out.println("Caught Exception");
+            }
+        }
         System.out.println("Gotten " + n);
+        valueSet = false;
+        notify();
         return n;
      }
 
      synchronized void put(int n){
+
+        while (valueSet){
+            try{
+                wait();
+            } catch(InterruptedException e){
+                System.out.println("Interrupted exception caught " + e);
+            }
+        }
+        
         this.n = n;
+        valueSet = true;
         System.out.println("put " + n);
+        notify();
      }
 
 }
