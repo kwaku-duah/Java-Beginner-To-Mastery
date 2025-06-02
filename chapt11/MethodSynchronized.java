@@ -1,18 +1,11 @@
 package chapt11;
 
-public class CallMe {
-    /* demonstration need for synchronization
-     * simply two or more parts of a program wanting to access shared resource
-     * implementation done regarding this uses an object which acts as a monitor
-     * once a thread acquires the lock of the monitor, all other threads
-     * would have to wait for it to exit 
-    */
-
+public class MethodSynchronized {
     /*
-     * to ensure once a thread calls call() method no other thread can
-     * use the synchronized keyword to serialize access
+     * putting a reference to a class in synchronized
+     * 
      */
-    synchronized void  call(String msg){
+    void call(String msg) {
         System.out.print("[" + msg);
 
         try {
@@ -25,25 +18,28 @@ public class CallMe {
     }
 }
 
-class Caller implements Runnable {
-    String msg;
-    CallMe target;
-    Thread t;
 
-    Caller(CallMe targ, String s){
+class DemoCaller implements Runnable {
+    String msg;
+    Thread t;
+    MethodSynchronized target;
+
+    DemoCaller(MethodSynchronized targ, String s) {
         msg = s;
         target = targ;
         t = new Thread(this);
+    }
 
+    public void run() {
+        /* reference to the object being synchronized */
+        synchronized (target) {
+            target.call(msg);
+        }
     }
-    
-    public void run(){
-        target.call(msg);
-    }
+
 }
 
-
-class Synch {
+class SynchDemo {
   public static void main(String[] args) {
       CallMe target = new CallMe();
 
@@ -68,4 +64,3 @@ class Synch {
 
   }
 }
-
