@@ -39,4 +39,9 @@ public class DemoEnumeration {
         case Reddel:
         //
      }
+
+     //when an enumeration is used in println statement, its name is output
+     System.out.println(Apple.Jonathan); //Jonathan prints out, not Apple.Jonathan
+
+    }
 }
