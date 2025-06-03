@@ -32,5 +32,11 @@ public class DemoEnumeration {
      //enumeration constants can also be compared with the relational operator
      if(ap == Apple.Golddel);
 
-     
+     //use enumeration variable to control to a switch, all cases of switch must use a value from the enum used for the switch
+     switch(ap) {
+        case Jonathan:
+            //
+        case Reddel:
+        //
+     }
 }
