@@ -11,7 +11,7 @@ public class EnumDemo4 {
      * ordinal() returns the position of an enum constant
      */
     public static void main(String[] args) {
-        Fruits ap, ap1, ap2;
+        Fruits ap, ap1, ap2, ap3;
 
         System.out.println(
             "Here are all fruit constants " + " their ordinal values"
@@ -23,7 +23,15 @@ public class EnumDemo4 {
         ap = Fruits.Cortland;
         ap1 = Fruits.Golddel;
         ap2 = Fruits.Jonathan;
+        ap3 = Fruits.Cortland;
 
         System.out.println();
+
+        //Demonstrate compareTo
+        if (ap.compareTo(ap2) < 0) System.out.println(ap + " comes before ap2 " + ap2); 
+        if (ap.compareTo(ap2) > 0) System.out.println(ap2 + " comes before " + ap);
+
+    
+        if (ap.compareTo(ap3) == 0) System.out.println(ap + " equals " + ap3);
     }
 }
