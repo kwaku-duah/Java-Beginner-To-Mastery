@@ -14,5 +14,9 @@ public class EnumDemo {
         System.out.println();
 
         ap = Apple.Golddel;
+
+        //compare two enum values
+        if (ap == Apple.Golddel)
+            System.out.println("ap contains Goldendel.\n");
     }
 }
