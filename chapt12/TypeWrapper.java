@@ -14,8 +14,24 @@ public class TypeWrapper {
      * static (wrapperClassType) valueOf(primitive data type ref-for-object-to-wrap)
      * to get the value from a wrapper class 
      * (primitive type) primitiveType+Value() e.g char charValue(), boolean booleanValue()
-     * byte byteValue()
+     * byte byteValue() int intValue() short shortValue() float floatValue() long longValue()
      */
     
      //demonstration of type wrapping
+
+     public static void main(String[] args) {
+        
+        //wrapper classes are prefixed with static, they are to be called independently
+
+        Integer iOB = Integer.valueOf(100); //iOb is an object, it is a wrapped integer object with Integer
+        /*process of encapsulating a value within an object is called BOXING */
+
+
+
+       int i = iOB.intValue(); //getting the value of iOB
+       /*process of extracting a value from a type wrapper is called unboxing */
+       System.out.println(i);
+
+        System.out.println("value of iOB is " + i);
+     }
 }
