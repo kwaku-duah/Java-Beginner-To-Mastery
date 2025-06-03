@@ -17,6 +17,10 @@ public class Enum2Demo {
         Apple[] allapples = Apple.values();
         for (Apple allapple: allapples) System.out.println(allapple);
 
+        //valueOf method returns a string
+        ap = Apple.valueOf("Winesap");
         
+
+        System.out.println("ap contains " + ap);
     }
 }
