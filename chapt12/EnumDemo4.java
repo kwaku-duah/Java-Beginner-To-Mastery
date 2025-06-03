@@ -39,7 +39,7 @@ public class EnumDemo4 {
 
          if(ap.equals(ap3)) System.out.println(ap + " equal to " + ap3);
 
-         if (ap == ap3) System.out.println(ap + " equal to " + ap3);
+         if (ap == ap3) System.out.println(ap + " == " + ap3);
     }
 
 
