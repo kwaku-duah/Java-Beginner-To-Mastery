@@ -14,6 +14,10 @@ public class Enum2Demo {
         Apple ap;
 
         //values() returns arrays
+        /* enum has features as a class
+         * but because it is static, it can be called independently, it does not require NEW Keyword
+         * to instantiate
+         */
         Apple[] allapples = Apple.values();
         for (Apple allapple: allapples) System.out.println(allapple);
 
