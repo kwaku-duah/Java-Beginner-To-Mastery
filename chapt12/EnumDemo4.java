@@ -33,5 +33,15 @@ public class EnumDemo4 {
 
     
         if (ap.compareTo(ap3) == 0) System.out.println(ap + " equals " + ap3);
+
+        //equals method
+         if (ap.equals(ap2)) System.out.println("Error!");
+
+         if(ap.equals(ap3)) System.out.println(ap + " equal to " + ap3);
+
+         if (ap == ap3) System.out.println(ap + " equal to " + ap3);
     }
+
+
+   
 }
