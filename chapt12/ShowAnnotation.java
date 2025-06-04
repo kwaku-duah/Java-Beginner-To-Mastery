@@ -13,6 +13,9 @@ import java.lang.reflect.Method;
     int val();
 }
 
+/*to fetch an annotation for a single object, you use getAnnotation()
+ * if fetching all existing annotations in a class or method is getAnnotations() with a letter s
+ */
 
 @Retention(RetentionPolicy.RUNTIME)
 @interface What {
