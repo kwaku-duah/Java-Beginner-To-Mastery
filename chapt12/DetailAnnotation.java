@@ -4,7 +4,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Method;
 
-@Retention(RetentionPolicy.RUNTIME) // retention policy
+@Retention(RetentionPolicy.RUNTIME) /*if retention type is not runtime, and it has no values,
+it will return null */
 
 //Annotation type declaration
 @interface MyAnnotate { 
@@ -42,6 +43,9 @@ class Meta {
 
     public static void main(String[] args) {
         //calling the method
+        /* this program uses reflection to get information about a class during
+         * runtime 
+         */
         myMeth();
     }
 }
