@@ -16,5 +16,9 @@ public class Annotation {
         int val();
     }
 
- 
+    /*annotations precede all declarations */
+    @MyAnno (str = "Annotation Example", val = 100)
+    public static void myMeth() {
+        //this annotation is linked with method myMeth
+    }
 }
