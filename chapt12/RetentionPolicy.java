@@ -11,8 +11,9 @@ public class RetentionPolicy {
      * policy offers the greatest annotation persistence in java
      * if no retention policy is specified, it defaults to CLASS
      * precedes annotation creation
+     * SOURCE for 
      */
-    @Retention(RetentionPolicy.RUNTIME)
+    @Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
     @interface MyAnnot {
         String str();
         int val();
