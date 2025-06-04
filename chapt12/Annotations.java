@@ -1,6 +1,6 @@
 package chapt12;
 
-public class Annotation {
+public class Annotations {
     /*annotations are supplemental information embedded in source files
      * does not change funtionality or semantics, just necessary information 
      * necessary for deployment and deployment
