@@ -60,4 +60,9 @@ public class DemonstrateTypeAnnotations<@What(description = "Generic type descri
     //annotate field
     @EmptyOK String test;
 
+    //use type annotation to annotate THIS
+    public int f(@TypeAnno DemonstrateTypeAnnotations<T> this, int x) {
+        return 10;
+    }
+
 }
