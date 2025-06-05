@@ -51,4 +51,10 @@ public class DemonstrateTypeAnnotations<@What(description = "Generic type descri
     //use type annotation on a constructor (used unique annotation)
     public @unique DemonstrateTypeAnnotations(){}
 
+    //annotate type, {not field}
+    @TypeAnno String str;
+    /* 
+     * the type String is annotated not the field str;
+     */
+
 }
