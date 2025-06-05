@@ -67,7 +67,13 @@ public class DemonstrateTypeAnnotations<@What(description = "Generic type descri
 
     //Annotate a return type
     public @TypeAnno Integer f2(int i, int j){
-        return 10;
+        return i + j;
+    }
+
+    //annotate method declaration
+    public @Recommended Integer f3(String str){
+        return str.length() / 2;
+
     }
 
 }
