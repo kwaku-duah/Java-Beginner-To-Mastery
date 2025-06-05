@@ -80,4 +80,7 @@ public class DemonstrateTypeAnnotations<@What(description = "Generic type descri
         //
     }
 
+    //annotate array levels 2D arrays, String[][]
+    String @MaxLex(10) [] @NotZeroLen [] w;
+
 }
