@@ -48,4 +48,7 @@ import java.lang.annotation.Target;
 // called WHAT)
 public class DemonstrateTypeAnnotations<@What(description = "Generic type description") T> {
 
+    //use type annotation on a constructor (used unique annotation)
+    public @unique DemonstrateTypeAnnotations(){}
+
 }
