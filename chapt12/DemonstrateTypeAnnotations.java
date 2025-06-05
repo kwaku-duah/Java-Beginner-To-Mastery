@@ -92,4 +92,7 @@ public class DemonstrateTypeAnnotations<@What(description = "Generic type descri
         DemonstrateTypeAnnotations<@TypeAnno Integer> ob = new DemonstrateTypeAnnotations<@TypeAnno Integer>();
     }
 
+    //use typ annotation with new
+    @unique DemonstrateTypeAnnotations<Integer> ob2 = new @unique DemonstrateTypeAnnotations<Integer>();
+
 }
