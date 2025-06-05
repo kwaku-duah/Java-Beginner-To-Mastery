@@ -22,4 +22,13 @@ public class TypeAnno {
          * so here: the annotation applies to NullPointerException
          */
     }
+
+    /*annotation for this is allowed in java in modern editions, (this) is an argument which is implicit
+    for all instances,it can be declared as first argument, in the declaration, the type of (THIS) should be its class
+     */
+    
+    void myMethanol(TypeAnno this, int i){
+        //here this is of type TypeAnno CLASS
+    }
+
 }
