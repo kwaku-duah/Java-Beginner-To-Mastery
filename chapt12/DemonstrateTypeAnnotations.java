@@ -73,7 +73,11 @@ public class DemonstrateTypeAnnotations<@What(description = "Generic type descri
     //annotate method declaration
     public @Recommended Integer f3(String str){
         return str.length() / 2;
+    }
 
+    //use a type annotation with a throws clause
+    public void f4() throws @TypeAnno NullPointerException {
+        //
     }
 
 }
