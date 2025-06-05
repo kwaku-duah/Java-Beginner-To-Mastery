@@ -48,6 +48,11 @@ public class RepeatedAnnotation {
             Annotation od = m.getAnnotation(RepeatedAnno.class);
             System.out.println(od);
 
+            //another way to get annotations..
+            Annotation[] annul = m.getAnnotationsByType(RepeatedAnno.class);
+
+            for (Annotation a: annul) System.out.println(a + "alternative form of getting annotations");
+
         } catch (NoSuchMethodException e) {
             System.out.println("No such method handled");
         }
