@@ -65,4 +65,9 @@ public class DemonstrateTypeAnnotations<@What(description = "Generic type descri
         return 10;
     }
 
+    //Annotate a return type
+    public @TypeAnno Integer f2(int i, int j){
+        return 10;
+    }
+
 }
