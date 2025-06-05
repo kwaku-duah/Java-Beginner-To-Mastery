@@ -86,4 +86,10 @@ public class DemonstrateTypeAnnotations<@What(description = "Generic type descri
     //annotate array element
     @TypeAnno Integer[] vec;
 
+
+    public static void myMethol(int i) {
+        //use type annotation on a type argument
+        DemonstrateTypeAnnotations<@TypeAnno Integer> ob = new DemonstrateTypeAnnotations<@TypeAnno Integer>();
+    }
+
 }
