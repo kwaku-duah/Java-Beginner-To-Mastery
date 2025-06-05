@@ -90,9 +90,21 @@ public class DemonstrateTypeAnnotations<@What(description = "Generic type descri
     public static void myMethol(int i) {
         //use type annotation on a type argument
         DemonstrateTypeAnnotations<@TypeAnno Integer> ob = new DemonstrateTypeAnnotations<@TypeAnno Integer>();
+
+     //use typ annotation with new
+    @unique DemonstrateTypeAnnotations<Integer> ob2 = new @unique DemonstrateTypeAnnotations<Integer>();
+
+    Object x = Integer.valueOf(19);
+    Integer y;
+
+      //using type annotations on cast
+    y =  (@TypeAnno Integer) x;
     }
 
-    //use typ annotation with new
-    @unique DemonstrateTypeAnnotations<Integer> ob2 = new @unique DemonstrateTypeAnnotations<Integer>();
+    public static void main(String[] args) {
+        myMethol(19);
+    }
+
+  
 
 }
