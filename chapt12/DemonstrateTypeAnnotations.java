@@ -106,6 +106,6 @@ public class DemonstrateTypeAnnotations<@What(description = "Generic type descri
     }
 
   //use type annotation with inheritance clause
-class SomeClass extends @ TypeAnno DemonstrateTypeAnnotations<Boolean> { }
+class SomeClass extends @TypeAnno DemonstrateTypeAnnotations<Boolean> { }
 
 }
