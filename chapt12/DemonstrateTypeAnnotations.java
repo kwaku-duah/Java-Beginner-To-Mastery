@@ -57,4 +57,7 @@ public class DemonstrateTypeAnnotations<@What(description = "Generic type descri
      * the type String is annotated not the field str;
      */
 
+    //annotate field
+    @EmptyOK String test;
+
 }
