@@ -1,6 +1,6 @@
 package taskscheduler;
 
-public class Task {
+public class Task implements Runnable {
     /*creating a task that implements the Runnable interface */
     private String nameOfTask;
     private TaskType task;
@@ -12,6 +12,7 @@ public class Task {
     }
 
     //Runnable interface have an implicit method run(), overriding it
+    @Override //annotation to override the run method
     public void run() {
         System.out.println("Executing " + task + "task: "  + nameOfTask + " at" + System.currentTimeMillis());
     }
