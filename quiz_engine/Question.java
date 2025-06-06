@@ -18,4 +18,8 @@ public class Question {
     public void ask(){
         System.out.println("[ " + type + " ]" + question);
     }
+
+    public String getCorrectAnswer(){
+        return answer;
+    }
 }

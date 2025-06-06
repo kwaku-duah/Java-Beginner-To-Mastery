@@ -7,7 +7,9 @@ public class QuizEngine {
 
     public QuizEngine(Question[] ques) {
         this.questions = ques;
+    }
 
+    public void start(){
         Scanner scanner = new Scanner(System.in);
         int score = 0;
 
@@ -20,10 +22,10 @@ public class QuizEngine {
                 System.out.println("Correct answer!\n");
                 score++;
             } else
-                System.out.println("Wrong answer " + "correct answer was " + q.checkAnswer(ans) + "\n");
+                System.out.println("Wrong answer " + "correct answer was " + q.getCorrectAnswer() + "\n");
 
         }
-        System.out.println("Final score: " + score + "out of " + questions.length);
+        System.out.println("Final score: " + score + " out of " + questions.length);
         scanner.close();
     }
 
