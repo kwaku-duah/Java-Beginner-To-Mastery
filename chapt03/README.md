@@ -1,1 +1,0 @@
-This chapter goes deeper into Data Types, Variables and Arrays
