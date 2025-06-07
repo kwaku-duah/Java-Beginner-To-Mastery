@@ -60,7 +60,11 @@ public class InstanceOfDemo {
 
     if (ob instanceof A) System.out.println("ob can be cast to A");
 
-    //
+    //all objects can be cast to Objects
+    if (a instanceof Object) System.out.println("a may be cast to Object");
+    if (b instanceof Object) System.out.println("b may be cast to Object");
+    if (c instanceof Object) System.out.println("c may be an instance of Object");
+    if (d instanceof Object) System.out.println("d may be an instance of Object");
  }
 
 }
