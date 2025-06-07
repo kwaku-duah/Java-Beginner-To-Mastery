@@ -34,13 +34,13 @@ public class FileReadDemo {
             } while (i != 1);
         } catch (IOException e) {
             System.out.println("File cannot be opened");
-        }
+        }  finally {//making this expedient with finally block to make the code more robust
 
         try {
             fin.close();
         } catch (IOException e) {
             System.out.println("File failed to close");
-        }
+        }}
 
     }
 }
