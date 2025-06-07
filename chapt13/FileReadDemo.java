@@ -31,7 +31,7 @@ public class FileReadDemo {
             do {
                 i = fin.read() ;
                 if (i != -1) System.out.println((char) i);
-            } while (i != 1);
+            } while (i != -1);
         } catch (IOException e) {
             System.out.println("File cannot be opened");
         }  finally {//making this expedient with finally block to make the code more robust
