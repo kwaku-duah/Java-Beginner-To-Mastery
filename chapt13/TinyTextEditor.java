@@ -18,14 +18,9 @@ public class TinyTextEditor {
 
         for (int i = 0; i < 100; i++) {
             str[i] = br.readLine();
-          if(str[i].equals("stop")) 
-            break;
+          if(str[i].equals("stop")) break;
           
         }
-
-        //Displaying the entered liens
-
-        for (int i =0; i<100; i++)   System.out.println(str[i]);
 
     }
 }
