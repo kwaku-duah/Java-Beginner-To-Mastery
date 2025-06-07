@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class ReadDemo {
+public class FileReadDemo {
     /*used read method to read from a file with fileinputsteam
      * this file showcases the use of manually calling close() method
      * 
