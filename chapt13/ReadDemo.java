@@ -1,6 +1,5 @@
 package chapt13;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -35,6 +34,12 @@ public class ReadDemo {
             } while (i != 1);
         } catch (IOException e) {
             System.out.println("File cannot be opened");
+        }
+
+        try {
+            fin.close();
+        } catch (IOException e) {
+            System.out.println("File failed to close");
         }
 
     }
