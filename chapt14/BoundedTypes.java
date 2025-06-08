@@ -37,4 +37,31 @@ public class BoundedTypes {
      * and it generates an error
      * 
      */
+    public static void main(String[] args) {
+
+        Integer[] first = {1, 2, 3, 4, 5};
+        Stats<Integer> ob = new Stats<Integer>(first);
+
+        double v = ob.average();
+        System.out.println("ob average is " + v);
+
+        //trying double
+        Double[] dnums = {1.1, 2.2, 3.3, 4.4, 5.5};
+        Stats<Double> ob1 = new Stats<Double>(dnums);
+
+        double v1 = ob1.average();
+        System.out.println("dob average is " + v1);
+
+        // //trying a string object, won't compile
+        // String[] str = {"1", "2", "3", "4", "5"};
+        // Stats<String> ob2 = new Stats<String>(str)  //bound mismatch, because String is not a subclass of number
+
+        // double x = ob2.average();
+        // System.out.println("ob " + x);
+
+
+
+
+        
+    }
 }
