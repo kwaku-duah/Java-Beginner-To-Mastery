@@ -1,6 +1,9 @@
 package chapt14;
 
-class Stats<T> {
+
+//defining type parameter where you specify types you want or its subclasses is called the boundary types
+//it is done by using the extends clause superclass or subclasses under the superclass
+class Stats<T extends Number> {
     T[] nums; //nums is an array of type T
 
     //pass constructor a reference of array of type T
@@ -10,7 +13,8 @@ class Stats<T> {
 
     double average() {
         double sum = 0.0;
-        for (int i = 0; i < nums.length; i++) {
+
+        for (int i = 0; i < nums.length; i++) 
             sum += nums[i].doubleValue(); //errror
 
             /*stats decides to obtain a double of all elements in the nums array
@@ -21,8 +25,8 @@ class Stats<T> {
              * established
              */
 
-            return sum / nums.length;
-        }
+            return sum / (nums.length);
+        
     }
 }
 
