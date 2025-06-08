@@ -34,5 +34,11 @@ package chapt14;
 
  //Demonstrate Generic Class
 public class GenDemo {
-    
+    public static void main(String[] args) {
+        //create a Demo reference where it uses integers
+       Demo<Integer> iOb;
+
+       //create a Demo<Integer> object and assign its reference to iOb
+       iOb = new Demo<Integer>(88); //auto-boxing of 88 from int to Integer, which encapsulates 88 to become an object
+    }
 }
