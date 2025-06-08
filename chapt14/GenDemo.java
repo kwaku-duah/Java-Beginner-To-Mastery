@@ -40,5 +40,15 @@ public class GenDemo {
 
        //create a Demo<Integer> object and assign its reference to iOb
        iOb = new Demo<Integer>(88); //auto-boxing of 88 from int to Integer, which encapsulates 88 to become an object
+
+       //show the type of data used by iOB
+       iOb.showType();
+
+       //get the value in iOB, notice no casting is done
+       int v = iOb.getOb();
+
+
+       //Creating a Demo object of type String
+       Demo<String> strObj = new Demo<String>("Generics Test");
     }
 }
