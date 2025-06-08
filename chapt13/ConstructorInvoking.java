@@ -17,14 +17,35 @@ public class ConstructorInvoking {
      }
 
      //initialize A and B to the same value
+    //  ConstructorInvoking(int i){
+    //     a = i;
+    //     b = i;
+    //  }
+
+     //initialize a and b to the same value with this
      ConstructorInvoking(int i){
-        a = i;
-        b = i;
+        this(i,i); //invokes MyClass to MyClass(i, i)
      }
 
      //give a and b default values of zero
-     ConstructorInvoking() {
-        a = 0;
-        b = 0;
+    //  ConstructorInvoking() {
+    //     a = 0;
+    //     b = 0;
+    //  }
+
+     //give a and be default values of 0
+     ConstructorInvoking(){
+        this(0);
      }
+
+     public static void main(String[] args) {
+        ConstructorInvoking mc = new ConstructorInvoking(8);
+        /*this invokes the constructor that matches the argument
+         * ConstructorInvoking(8,8)
+         */
+     }
+
+     /* this is called constructor chaining, reduces boiler plate code
+      * helps with DRY - dont repeat yourself
+      */
 }
