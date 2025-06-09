@@ -8,5 +8,18 @@ public class GenericConstructors {
         val = arg.doubleValue();
     }
 
-    
+    void showValue(){
+        System.out.println("val is " + val);
+    }
+
+}
+
+class ConstructorGen {
+    public static void main(String[] args) {
+        GenericConstructors ob = new GenericConstructors(12);
+        GenericConstructors ob1 = new GenericConstructors(123.8F);
+
+        ob.showValue();
+        ob1.showValue();
+    }
 }
