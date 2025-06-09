@@ -8,6 +8,7 @@ class Hierarch<T> {
     }
 
     T getOb() {
+        System.out.println("Get Hierarchs ob ");
         return ob;
     }
 }
@@ -18,6 +19,12 @@ class InstanceHierarch<T> extends Hierarch<T> {
     InstanceHierarch(T o) {
         super(o);
     }
+
+    /*methods can be overriden in generic classes */
+    T getOb(){
+        System.out.println("Gen2's getOB ");
+        return ob;
+    }
 }
 
 public class HierRuntime {
@@ -27,8 +34,15 @@ public class HierRuntime {
         // gen one object
         Hierarch<Integer> w1 = new Hierarch<Integer>(88);
 
+       
+
         // gen2 object
         InstanceHierarch<String> w2 = new InstanceHierarch<String>("Generics test");
+
+         //call to gen2's overriden method
+       
+         System.out.println("gen2's ob " +  w2.getOb());
+
 
         // check if w1 is same form as w2
         if (w1 instanceof Hierarch<?>)
