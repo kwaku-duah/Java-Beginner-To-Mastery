@@ -28,6 +28,15 @@ class FourD extends ThreeD {
 
 }
 
+//next here is a generic class that specifies TwoD as an upper boundary
+class Coords<T extends TwoD> {
+    T[] coords;
+
+    Coords(T[] o) {
+        coords = o;
+    }
+}
+
 public class BoundedWildCards {
     /*
      * wildcards are represented with ? indicating unknown types
