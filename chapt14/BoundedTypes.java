@@ -38,6 +38,12 @@ class Stats<T extends Number> {
         if (average() == ob.average()) return true;
          return false;
        }
+
+       //solving this issue with wilcards which takes the form (?) and specifies unknown type
+       boolean isSameAverageWildCard(Stats<?> ob) {
+        if(average() == ob.average()) return true;
+        return false;
+       }
 }
 
 
@@ -56,14 +62,40 @@ public class BoundedTypes {
         System.out.println("ob average is " + v);
 
         //trying double
-        Double[] dnums = {1.1, 2.2, 3.3, 4.4, 5.5};
+        Double[] dnums = {1.0, 2.0, 3.0, 4.0, 5.0};
         Stats<Double> ob1 = new Stats<Double>(dnums);
 
         double v1 = ob1.average();
         System.out.println("dob average is " + v1);
 
+        //trying for floats
+        Float[] f = {1.0F, 2.0F, 3.0F, 4.0F, 5.0F};
+        Stats<Float> fob = new Stats<Float>(f);
+
+        float fb = (float) fob.average();
+        System.out.println("float value is " + fb);
+
+
         System.out.println("Testing");
-        System.out.println(ob1.isSameAverage(ob1));
+        System.out.println(ob1.isSameAverage(ob1)); //this works but not for any other data types, solution is wildcard arguments
+
+
+        /* the wildcard in there does not tell the type to the compiler, it just
+         * works with the types so far they are from the same superclass and converge to one type
+         */
+        if (ob.isSameAverageWildCard(ob1)) {
+            System.out.println("The averages are the same");
+        } else {
+            System.out.println("They are not the same");
+        }
+
+        //testing for comparability for floats
+        if (fob.isSameAverageWildCard(ob)) {
+            System.out.println("same");
+        }
+        else {
+            System.out.println("not same");
+        };
 
         // //trying a string object, won't compile
         // String[] str = {"1", "2", "3", "4", "5"};
