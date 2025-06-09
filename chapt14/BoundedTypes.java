@@ -28,6 +28,16 @@ class Stats<T extends Number> {
             return sum / (nums.length);
         
     }
+
+       //method to compare  two stats objects
+       /*the average of that argument against  the invoking
+        * however this is narrow and only works when the argument is of same type as the invoking object
+        this is linear, for a generic solution, we must use the wild cards
+       */
+       boolean isSameAverage(Stats<T> ob) {
+        if (average() == ob.average()) return true;
+         return false;
+       }
 }
 
 
@@ -51,6 +61,9 @@ public class BoundedTypes {
 
         double v1 = ob1.average();
         System.out.println("dob average is " + v1);
+
+        System.out.println("Testing");
+        System.out.println(ob1.isSameAverage(ob1));
 
         // //trying a string object, won't compile
         // String[] str = {"1", "2", "3", "4", "5"};
