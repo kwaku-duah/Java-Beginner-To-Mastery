@@ -82,7 +82,7 @@ public class BoundedWildCards {
         System.out.println("Contents of tdlocs");
 
         showXY(tdlocs);
-        // showXYZ(tdlocs);
+        // showXYZ(tdlocs); Error
         // showXYZT(tdlocs);
 
        // three D 
@@ -95,6 +95,18 @@ public class BoundedWildCards {
         Coords<ThreeD> th = new Coords<ThreeD>(thdlocs);
 
         showXYZ(th);
+
+        FourD[] four = {
+            new FourD(2, 4, 7, 7),
+            new FourD(4, 6, 7, 8),
+            new FourD(36, -21, 45, -78)
+        };
+
+        System.out.println("4 coordinates from fourD array");
+
+        Coords<FourD> fd = new Coords<FourD>(four);
+        //calling its the method on it
+        showXYZT(fd);
         
     }
 
