@@ -10,8 +10,15 @@ SimpleLambda() {
 
 }
 
+// () -> 123.4; 
+//takes no parameters and it returns 123.4
+
+//this expression is similar to 
+    double myMeth() {return 123.4;}
+
 public static void main(String[] args) {
-    // () -> 123.4; takes no parameters and it returns 123.4
+    
+    
 }
 
 }
