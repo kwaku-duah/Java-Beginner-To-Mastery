@@ -9,3 +9,9 @@ defined by a functional interface
 
 Lambda expressions results in anonynous classes...They are commonly referred to
 us closures
+
+Functional interface is an interface that contains one and only one abstract method
+The method specifies the intent of the interface. A functional interface represents a 
+single action
+It defines the target type of a lambda expression
+
