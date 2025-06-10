@@ -16,4 +16,7 @@ single action
 It defines the target type of a lambda expression
 A lambda expression is used only if its target type is specified
 a functional interface is also sometimes called single abstract method, SAM
+A functional interface may specify public Object such equals() and that does not 
+affect the functional status because Object is considered implicit members of a functional interface
+
 
