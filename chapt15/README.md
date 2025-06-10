@@ -14,4 +14,6 @@ Functional interface is an interface that contains one and only one abstract met
 The method specifies the intent of the interface. A functional interface represents a 
 single action
 It defines the target type of a lambda expression
+A lambda expression is used only if its target type is specified
+a functional interface is also sometimes called single abstract method, SAM
 
