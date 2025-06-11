@@ -31,6 +31,7 @@ public class LambdaException {
 
         System.out.println("The average is " + average.f(values));
 
+        //throws an error because of zero length array
         System.out.println("The average, this throws an error " + average.f(new double[0]));
 
     }
