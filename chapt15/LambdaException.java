@@ -31,5 +31,7 @@ public class LambdaException {
 
         System.out.println("The average is " + average.f(values));
 
+        System.out.println("The average, this throws an error " + average.f(new double[0]));
+
     }
 }
