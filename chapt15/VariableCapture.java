@@ -10,5 +10,17 @@ public class VariableCapture {
     //lambda expression onl use variables that are effectively final
     //local variable defined in the enclosing class cannot be modified in the lambda expression
 
+    public static void main(String[] args) {
+        int num = 10; //local variable that can be captured
 
+        //number is effectively
+        Capture unMutable = (n) -> {
+            int v = num + n;
+
+            //attempting to alter the value stored on num, defeats the final status form
+            // num++;
+
+        return v;
+        };
+    }
 }
