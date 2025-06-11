@@ -18,6 +18,6 @@ public class BlockLambda {
 
         };
         System.out.println("Factorial of three " + factorial.func(3));
-        System.out.println("factorial of 50 " + factorial.func(5));
+        System.out.println("factorial of 5 " + factorial.func(5));
     }
 }
