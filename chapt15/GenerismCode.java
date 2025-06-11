@@ -25,5 +25,16 @@ public class GenerismCode {
        };
 
        System.out.println("Reverse my name " + str.myNum("abc"));
+
+       //using generism to make another method, much flexible
+       Mycal<Integer> num = (n) -> {
+        int result = 1;
+
+        for (int i = 1; i <= n; i ++)
+            result = i * result;
+
+        return result;
+       };
+       System.out.println("the factorial of 20 is " + num.myNum(5));
     }
 }
