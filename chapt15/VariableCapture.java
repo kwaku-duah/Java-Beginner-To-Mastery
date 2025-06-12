@@ -17,7 +17,7 @@ public class VariableCapture {
         Capture unMutable = (n) -> {
             int v = num + n;
 
-            //attempting to alter the value stored on num, defeats the final status form
+            //attempting to alter the value stored on num, defeats the effectively final status form
             // num++;
 
         return v;
