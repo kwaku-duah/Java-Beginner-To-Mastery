@@ -11,18 +11,17 @@ package chapt15;
  * this also needs a functional interface
  */
 
-
- interface StringFunc{
+interface StringFunc {
     String func(String n);
- }
+}
 
-//this class defines a static method
+// this class defines a static method
 public class MethodRefReadme {
     static String strReverse(String str) {
 
         String reverse = "";
         int i;
-        for (i = str.length()-1; i >=0; i--)
+        for (i = str.length() - 1; i >= 0; i--)
             reverse += str.charAt(i);
         return reverse;
     }
@@ -31,11 +30,21 @@ public class MethodRefReadme {
 class DemoMethodRef {
     /*
      * this method has a functional interface as its first parameter
-     * hence it can take instance of a functional interface including 
+     * hence it can take instance of a functional interface including
      * a method reference
      */
     static String stringOp(StringFunc sf, String s) {
         return sf.func(s);
     }
 
+    public static void main(String[] args) {
+        String instr = "Lambda adds expressive power to Java";
+        String outstr;
+
+        //pass name of class::name of method, thats method reference
+        outstr =  stringOp(MethodRefReadme::strReverse, instr);
+
+        System.out.println("Original string " + instr);
+        System.out.println("Reversed string " + outstr);
+    }
 }
