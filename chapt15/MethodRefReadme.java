@@ -4,6 +4,10 @@ package chapt15;
  * method references relates a way to call methods without executing it
  * it relates to lambda expressions because it too require target types
  * it has two types methods reference static methods
+ * 
+ * 
+ * General syntax for  static method reference
+ * ClassName::methodName
  */
 
 
