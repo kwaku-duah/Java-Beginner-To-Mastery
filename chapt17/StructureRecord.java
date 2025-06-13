@@ -25,8 +25,8 @@ public class StructureRecord {
         emp[3] = new Employee("Attaa, Ayi", 3);
         emp[4] = new Employee("Vincent, Antwi", 4);
 
-        //use record accessors to access the get fields
-        for (Employee eList: emp) 
-            System.out.println("The employees " + eList.name()  + " order " + eList.idNum());
+        // use record accessors to access the get fields
+        for (Employee eList : emp)
+            System.out.println("The employees " + eList.name() + " order " + eList.idNum());
     }
 }
