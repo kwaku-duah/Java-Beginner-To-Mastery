@@ -7,6 +7,9 @@ package chapt17;
 
 public class TextBlock {
     public static void main(String[] args) {
-        
+        String str = """
+                text blocks makes new lines in java very easy!
+                """;
+            System.out.println(str);
     }
 }
