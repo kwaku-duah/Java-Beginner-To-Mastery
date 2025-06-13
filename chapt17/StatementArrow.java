@@ -12,6 +12,11 @@ public class StatementArrow {
 
     //use arrow case in switch statement
 
+    /*
+     * switch statement does not return a value, 
+     * it does not also necessarily make use of a default statement
+     * switch expressions return a value
+     */
     switch (redirection) {
         case 'L' -> {
             System.out.println("Turning left");
