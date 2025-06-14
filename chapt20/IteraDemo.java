@@ -48,5 +48,13 @@ public class IteraDemo {
             System.out.print(element + " ");
         }
         System.out.println();
+
+        //displaying the list backwards
+        h = trial.iterator();
+        while (pc.hasPrevious()) {
+            String elem = pc.previous();
+            System.out.print(elem + " ");
+        }
+        System.out.println();
     }
 }
