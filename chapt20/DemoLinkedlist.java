@@ -23,5 +23,10 @@ public class DemoLinkedlist {
         test.remove("F");
         System.out.println("Contents after deletion " + test);
 
+        //remove first and last elements with methods
+        test.removeFirst();
+        test.removeLast();
+        System.out.println("delete first and last "+ test);
+
     }
 }
