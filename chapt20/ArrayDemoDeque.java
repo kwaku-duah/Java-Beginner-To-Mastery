@@ -20,5 +20,10 @@ public class ArrayDemoDeque {
         test.push("H");
 
         System.out.println("Display contents for an arraydeque " + test);
+
+        System.out.println("About to pop with pop()");
+
+        while(test.peek() != null) System.out.print(test.pop() + " ");
+        System.out.println();
     }
 }
