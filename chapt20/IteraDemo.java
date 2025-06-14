@@ -2,6 +2,7 @@ package chapt20;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 public class IteraDemo {
     public static void main(String[] args) {
@@ -31,5 +32,21 @@ public class IteraDemo {
             System.out.print(element + " ");
 
         }
+        System.out.println();
+
+        //modify the objects being iterated
+        ListIterator<String> pc = trial.listIterator();
+        while(pc.hasNext()) {
+            String element = pc.next();
+            pc.set(element + "+");
+        }
+
+        //modiied contents of al
+        h = trial.iterator();
+        while (h.hasNext()) {
+            String element = h.next();
+            System.out.print(element + " ");
+        }
+        System.out.println();
     }
 }
