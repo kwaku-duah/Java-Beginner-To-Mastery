@@ -9,14 +9,15 @@ public class ArrayDemoDeque {
          */
         ArrayDeque<String> test = new ArrayDeque<>();
 
-        test.add("Q");
-        test.add("B");
-        test.add("C");
-        test.add("D");
-        test.add("E");
-        test.add("F");
-        test.add("G");
-        test.add("H");
+        //using it as a stack
+        test.push("Q");
+        test.push("B");
+        test.push("C");
+        test.push("D");
+        test.push("E");
+        test.push("F");
+        test.push("G");
+        test.push("H");
 
         System.out.println("Display contents for an arraydeque " + test);
     }
