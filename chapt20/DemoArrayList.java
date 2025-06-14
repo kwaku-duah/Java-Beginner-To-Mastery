@@ -18,6 +18,9 @@ public class DemoArrayList {
         //show size
         System.out.println("size of arraylist " + test.size());
 
+        //remove element
+        System.out.println("remove element a " + test.remove(0));
+
     
 
 
