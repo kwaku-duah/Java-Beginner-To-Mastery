@@ -19,5 +19,9 @@ public class DemoLinkedlist {
         //Original contents of the test
         System.out.println("contents of test " + test);
 
+        //remove elements from linkedlist
+        test.remove("F");
+        System.out.println("Contents after deletion " + test);
+
     }
 }
