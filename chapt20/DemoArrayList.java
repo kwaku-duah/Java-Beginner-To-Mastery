@@ -15,6 +15,9 @@ public class DemoArrayList {
         System.out.println("Show all members in the arraylist " + test);
 
 
+        //show size
+        System.out.println("size of arraylist " + test.size());
+
     
 
 
