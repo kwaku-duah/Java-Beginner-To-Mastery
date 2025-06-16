@@ -7,7 +7,7 @@ import com.springrest.helloworld.Bean.Student;
 
 @RestController
 public class StudentController {
-    
+
     @GetMapping("/student-name")
     public Student studentName() {
         return new Student("Kwaku", "Duah");
