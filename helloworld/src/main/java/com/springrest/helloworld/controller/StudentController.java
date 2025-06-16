@@ -42,12 +42,13 @@ public class StudentController {
     @GetMapping("/student/query")
     public Student getRequest(
 
-    /*request params gives a tip in the url which guides a method in
-     * carrying out a task. The specification of name = firstName is 
-     * unnecessary and redundant because the method parameter and the name
-     * parameter are the same, 
-     * Left it here for basic reasons.
-     */
+            /*
+             * request params gives a tip in the url which guides a method in
+             * carrying out a task. The specification of name = firstName is
+             * unnecessary and redundant because the method parameter and the name
+             * parameter are the same,
+             * Left it here for basic reasons.
+             */
             @RequestParam(name = "firstName") String firstName,
             @RequestParam(name = "lastName") String lastName) {
         return new Student(firstName, lastName);

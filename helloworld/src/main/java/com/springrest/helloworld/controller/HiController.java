@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HiController {
 
-
     @GetMapping("/basic-math")
     public int hiTest() {
         int add = 8;

@@ -47,7 +47,7 @@ public class MaternityWardController {
      * redundancy
      */
 
-     @GetMapping("/children/query")
+    @GetMapping("/children/query")
     public Children requestChild(
             @RequestParam() String fullName,
             @RequestParam() int age,

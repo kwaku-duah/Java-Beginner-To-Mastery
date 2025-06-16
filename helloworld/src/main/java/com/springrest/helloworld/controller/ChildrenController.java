@@ -10,11 +10,11 @@ import com.springrest.helloworld.Model.Children;
  * 
  */
 
- @RestController
+@RestController
 public class ChildrenController {
-    
+
     @GetMapping("/child-info")
-    public Children childDetails(){
-        return new Children("Kwaku Duah",25, 170.24 );
+    public Children childDetails() {
+        return new Children("Kwaku Duah", 25, 170.24);
     }
 }
