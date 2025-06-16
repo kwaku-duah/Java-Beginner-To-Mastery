@@ -23,6 +23,10 @@ public class AttendanceController {
          * class ArrayList<>
          */
         List<Student> startSchool = new ArrayList<>();
+        /*
+         * add method(E element) takes an object, so new
+         * student creates an object satisfying the demand
+         */
         startSchool.add(new Student("Duah", "Kwaku"));
         startSchool.add(new Student("Mabel", "Serwaa"));
         startSchool.add(new Student("Irene", "Antwi"));
