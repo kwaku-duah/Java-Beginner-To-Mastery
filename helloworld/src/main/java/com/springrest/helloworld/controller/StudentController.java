@@ -3,7 +3,7 @@ package com.springrest.helloworld.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springrest.helloworld.Bean.Student;
+import com.springrest.helloworld.Model.Student;
 
 @RestController
 public class StudentController {

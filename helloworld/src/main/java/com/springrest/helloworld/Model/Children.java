@@ -1,4 +1,4 @@
-package com.springrest.helloworld.Bean;
+package com.springrest.helloworld.Model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

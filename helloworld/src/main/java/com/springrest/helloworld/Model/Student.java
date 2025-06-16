@@ -1,4 +1,4 @@
-package com.springrest.helloworld.Bean;
+package com.springrest.helloworld.Model;
 
 /*
  * Build a springboot REST API that returns a Java bean
