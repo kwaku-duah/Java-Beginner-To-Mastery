@@ -7,6 +7,7 @@ import com.springrest.helloworld.Model.Children;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /*
  * this controller models the children class, newborn babies
@@ -38,6 +39,19 @@ public class MaternityWardController {
      */
     @GetMapping("/children/{fullName}/{age}/{height}")
     public Children getChild(@PathVariable String fullName, @PathVariable int age, @PathVariable double height) {
+        return new Children(fullName, age, height);
+    }
+
+    /*
+     * Demonstration of @requestmapping annotation usage, efficiently without
+     * redundancy
+     */
+
+     @GetMapping("/children/query")
+    public Children requestChild(
+            @RequestParam() String fullName,
+            @RequestParam() int age,
+            @RequestParam() double height) {
         return new Children(fullName, age, height);
     }
 }
