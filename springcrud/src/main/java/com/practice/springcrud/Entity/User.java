@@ -38,12 +38,12 @@ public class User {
     */
 
     @NotBlank(message = "First name must not be blank")
-    @Size(max = 50, message = "First name must not be longer than 10 letters")
+    @Size(max = 50, message = "First name must not be longer than 50 letters")
     @Column(nullable = false)
     private String firstName;
 
     @NotBlank(message = "Last name must not be blank")
-    @Size(max = 20, message = "Last name must not be longer than 20 letters")
+    @Size(max = 50, message = "Last name must not be longer than 50 letters")
     @Column(nullable = false)
     private String lastName;
 

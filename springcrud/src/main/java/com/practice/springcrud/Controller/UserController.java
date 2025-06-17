@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.practice.springcrud.Entity.User;
 import com.practice.springcrud.Service.UserService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 /*this is the user controller
@@ -33,8 +34,13 @@ public class UserController {
      */
     private final UserService userService;
 
+    /*@Valid annotation on the user object, because it has validation on
+     * it in the entity class to enforce it, 
+     * always handle validation at the controller level, to prevent it from 
+     * getting to the service and controller
+     */
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@RequestBody @Valid User user) {
         User savedUser = userService.createUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
@@ -54,7 +60,7 @@ public class UserController {
     @PutMapping("{userId}")
     public ResponseEntity<User> updateUser(
             @PathVariable() Long userId,
-            @RequestBody User user) {
+            @RequestBody @Valid User user) {
         user.setId(userId);
         User updatedUser = userService.updateUser(user);
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
