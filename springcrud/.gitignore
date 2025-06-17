@@ -4,8 +4,6 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-## resource folder
-!**/src/main/resources/application.properties
 
 
 ### STS ###
@@ -37,3 +35,6 @@ build/
 .vscode/
 
 ./gitignore
+
+## resource folder
+src/main/resources/application.properties
