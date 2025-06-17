@@ -32,7 +32,7 @@ public record EmployeeRequest(
     @NotNull(message = "Enter starting salary")
     @DecimalMin(value = "0.0", inclusive = false, message = "Salary cannot be 0")
     @Digits(integer = 10, fraction = 2, message = "Salary must be up to two decimals")
-    double salary,
+    Double salary,
 
     @NotBlank(message = "Please provide a phone number")
     @Pattern(regexp = "^(233|0)[0-9]{9}$", message = "Your phone number must start with 233 or 0 and followed by 9 numbers")
