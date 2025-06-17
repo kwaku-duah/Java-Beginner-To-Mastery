@@ -1,5 +1,10 @@
 package com.practice.springcrud.Mapper;
 
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
+
 import com.practice.springcrud.DTO.EmployeeRequestDto;
 import com.practice.springcrud.DTO.EmployeeResponseDto;
 import com.practice.springcrud.Entity.Employee;
@@ -17,6 +22,7 @@ import com.practice.springcrud.Entity.Employee;
  * request dto translation to an entity
  */
 
+@Mapper(componentModel = "spring")
 public interface EmployeeMapper {
     /*
      * this method takes an employeerequest returns an employee object
@@ -26,10 +32,21 @@ public interface EmployeeMapper {
     Employee toEntity(EmployeeRequestDto dto);
 
     /*
-     * takes an employee object (entity and then 
+     * takes an employee object (entity and then
      * returns only fields defined in the response)
      */
     EmployeeResponseDto toResponseDto(Employee employee);
+
+    /*
+     * records do work well with partial data, for existing fields, if you
+     * updating it, to prevent the writeup to overrite already parts with
+     * null, you must add the annotaion nullValuePropertyMappingStrategy
+     * 
+     * when partial data comes from the dto,with some null, this helps it to skip it
+     * and preserve the old data
+     */
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void updateExistingUserFromDto(EmployeeRequestDto dto, @MappingTarget Employee employee);
 }
 
-//this binds the entity to the DTO
+// this binds the entity to the DTO
