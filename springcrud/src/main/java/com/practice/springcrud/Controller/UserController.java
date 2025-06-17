@@ -37,5 +37,11 @@ public class UserController {
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<User> getUserById(@PathVariable("id") Long userId) {
+        User fetchUser = userService.getUserById(userId);
+        return new ResponseEntity<>(fetchUser, HttpStatus.OK);
+    }
+
    
 }
