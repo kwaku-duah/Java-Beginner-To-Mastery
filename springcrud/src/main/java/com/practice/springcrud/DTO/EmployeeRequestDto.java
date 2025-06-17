@@ -13,7 +13,7 @@ import jakarta.validation.constraints.*;
  * instead of the entity because this is what will be passed to the controller layer
  */
 
-public record EmployeeRequest(
+public record EmployeeRequestDto(
 
     @NotBlank(message = "You must provide a first name")
     @Size(max = 50, message = "First Name must be max 50 characters")

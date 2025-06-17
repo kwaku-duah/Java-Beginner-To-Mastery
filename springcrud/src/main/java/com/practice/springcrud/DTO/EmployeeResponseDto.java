@@ -6,7 +6,7 @@ package com.practice.springcrud.DTO;
  * the frontend, decoupling at its best 
  */
 
-public record EmployeeResponse(
+public record EmployeeResponseDto(
     Long id,
     String firstName,
     String lastName,
