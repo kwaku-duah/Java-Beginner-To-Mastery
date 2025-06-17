@@ -16,7 +16,6 @@ import com.practice.springcrud.Entity.User;
  * @Repository, no need to add this, because spring Data JPA automatically does it
  */
 
-
 public interface UserRepository extends JpaRepository<User, Long> {
-    
+
 }
