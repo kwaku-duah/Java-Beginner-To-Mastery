@@ -28,11 +28,6 @@ public interface EmployeeService {
     List<EmployeeResponseDto> getAllEmployees();
 
     /*
-     * find employee by email
-     */
-    EmployeeResponseDto getEmployeeByEmail(String email);
-
-    /*
      * update employee through the id field
      */
     EmployeeResponseDto updateEmployee(Long id, EmployeeRequestDto dto);
