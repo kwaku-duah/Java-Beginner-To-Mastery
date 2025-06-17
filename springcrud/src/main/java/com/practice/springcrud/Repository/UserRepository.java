@@ -12,7 +12,11 @@ import com.practice.springcrud.Entity.User;
  * 
  * this setup automatically gives out of the box CRUD methods, save(),
  * findById() and deleteById() 
+ * 
+ * @Repository, no need to add this, because spring Data JPA automatically does it
  */
+
+
 public interface UserRepository extends JpaRepository<User, Long> {
     
 }
