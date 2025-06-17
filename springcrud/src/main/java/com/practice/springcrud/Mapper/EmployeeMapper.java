@@ -2,6 +2,7 @@ package com.practice.springcrud.Mapper;
 
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
@@ -27,16 +28,16 @@ public interface EmployeeMapper {
     /*
      * this method takes an employeerequest returns an employee object
      * created from employee entity
-     * 
+     * @Mapping annotation takes away a warning in java
      */
-    
+    @Mapping(target = "id", ignore = true)
     Employee toEntity(EmployeeRequestDto dto);
 
     /*
      * takes an employee object (entity and then
      * returns only fields defined in the response)
      */
-
+    
     EmployeeResponseDto toResponseDto(Employee employee);
 
     /*
@@ -47,7 +48,9 @@ public interface EmployeeMapper {
      * when partial data comes from the dto,with some null, this helps it to skip it
      * and preserve the old data
      */
+
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "id", ignore = true)
     void updateExistingUserFromDto(EmployeeRequestDto dto, @MappingTarget Employee employee);
 }
 

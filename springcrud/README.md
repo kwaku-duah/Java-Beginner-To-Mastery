@@ -11,3 +11,7 @@ mapper ----> converts between entity and DTO (using mapstruct)
 exceptions ----> custom exceptions and handlers
 config -----> configuration classes, security, CORS
 util ------> utility/helper classes
+
+
+User Entity Implemented basic CRUD in springboot
+Employee Entity delved deeply into proper useful RESTful API

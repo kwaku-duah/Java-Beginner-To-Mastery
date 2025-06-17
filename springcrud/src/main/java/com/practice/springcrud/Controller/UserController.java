@@ -37,7 +37,7 @@ public class UserController {
     /*@Valid annotation on the user object, because it has validation on
      * it in the entity class to enforce it, 
      * always handle validation at the controller level, to prevent it from 
-     * getting to the service and controller
+     * getting to the service
      */
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody @Valid User user) {

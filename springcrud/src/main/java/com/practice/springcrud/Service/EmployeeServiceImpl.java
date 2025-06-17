@@ -43,7 +43,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeMapper.toResponseDto(employeeRepository.save(employee));
     }
 
-
     /*
      * Get employee by Id, the findbyId returns optional<T>
      */
@@ -64,13 +63,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<EmployeeResponseDto> getAllEmployees() {
         return employeeRepository.findAll()
-            .stream()
-            .map(employeeMapper::toResponseDto)
-            .toList();
+                .stream()
+                .map(employeeMapper::toResponseDto)
+                .toList();
 
-            /*.map(employee -> employeeMapper.toResponseDto(employee) is same as 
-             * the method referencing , passing lambda as an argument
-             */
+        /*
+         * .map(employee -> employeeMapper.toResponseDto(employee) is same as
+         * the method referencing , passing lambda as an argument
+         */
     }
 
     @Override
