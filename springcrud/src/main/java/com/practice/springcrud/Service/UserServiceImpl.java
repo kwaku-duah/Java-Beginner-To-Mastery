@@ -1,7 +1,11 @@
 package com.practice.springcrud.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
+import com.practice.springcrud.Entity.User;
 import com.practice.springcrud.Repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -20,13 +24,46 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService {
 
-    /*service layer depends hugely on the repository 
+    /*
+     * service layer depends hugely on the repository
      * user repository Field has been declared in this class
-     * instead of manually creating a constructor that sets its value, 
+     * instead of manually creating a constructor that sets its value,
      * I have used requiredargsconstructor which will manage it for me
-    */
+     */
     private final UserRepository userRepository;
+
+    @Override
+    public User createUser(User user) {
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User getUserById(Long userId) {
+        Optional<User> getUser = userRepository.findById(userId);
+        return getUser.get();
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public User updateUser(User user) {
+        User existingUser = userRepository.findById(user.getId()).get();
+        existingUser.setFirstName(user.getFirstName());
+        existingUser.setLastName(user.getLastName());
+        existingUser.setEmail(user.getEmail());
+        User updatedUser = userRepository.save(existingUser);
+
+        return updatedUser;
+    }
+
+    @Override
+    public void deleteUserById(Long userId) {
+        userRepository.deleteById(userId);
+    }
 
 }
