@@ -3,6 +3,7 @@ package com.practice.springcrud.Service;
 import java.util.List;
 import com.practice.springcrud.DTO.EmployeeRequestDto;
 import com.practice.springcrud.DTO.EmployeeResponseDto;
+import com.practice.springcrud.DTO.PartialEmployeeRequestDto;
 
 /*
  * Employee service interface to determine what should be done
@@ -41,4 +42,9 @@ public interface EmployeeService {
      * find employee by email, interface addition
      */
     EmployeeResponseDto findByEmail(String email);
+
+    /*partial update of employee
+     * with only some data and not all
+     */
+    EmployeeResponseDto partialUpdate(Long id, PartialEmployeeRequestDto dto);
 }

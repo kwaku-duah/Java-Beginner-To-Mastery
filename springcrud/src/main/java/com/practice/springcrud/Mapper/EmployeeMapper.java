@@ -62,16 +62,17 @@ public interface EmployeeMapper {
     @Mapping(target = "id", ignore = true)
     void updateExistingUserFromDto(EmployeeRequestDto dto, @MappingTarget Employee employee);
 
-
     /*
      * There is no validation for the for the partialemployeerequestdto
-     * this allows passed data to reach this method and then from the source if there
-     * are fields with null, the BeanMapping simply instructs mapstruct to not replace
+     * this allows passed data to reach this method and then from the source if
+     * there
+     * are fields with null, the BeanMapping simply instructs mapstruct to not
+     * replace
      * the existing fields with null
      */
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "id", ignore = true)
-    void updatePartialEmployeeFromDto(PartialEmployeeRequestDto dto, @MappingTarget Employee employee);
+    void partialEmployeeFromDto(PartialEmployeeRequestDto dto, @MappingTarget Employee employee);
 }
 
 // this binds the entity to the DTO

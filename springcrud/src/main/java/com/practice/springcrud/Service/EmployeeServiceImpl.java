@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.practice.springcrud.DTO.EmployeeRequestDto;
 import com.practice.springcrud.DTO.EmployeeResponseDto;
+import com.practice.springcrud.DTO.PartialEmployeeRequestDto;
 import com.practice.springcrud.Entity.Employee;
 import com.practice.springcrud.Exception.ResourceNotFoundException;
 import com.practice.springcrud.Mapper.EmployeeMapper;
@@ -97,6 +98,21 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = employeeRepository.findByEmail(email)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee with email", "email", email));
         return employeeMapper.toResponseDto(employee);
+    }
+
+    /*
+     * partial update of data
+     */
+
+    @Override
+    public EmployeeResponseDto partialUpdate(Long id, PartialEmployeeRequestDto dto) {
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee", "ID", id));
+
+        employeeMapper.partialEmployeeFromDto(dto, employee);
+        Employee partialEmployeeUpdate = employeeRepository.save(employee);
+
+        return employeeMapper.toResponseDto(partialEmployeeUpdate);
     }
 
 }
