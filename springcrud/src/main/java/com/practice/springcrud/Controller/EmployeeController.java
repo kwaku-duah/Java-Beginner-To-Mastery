@@ -30,6 +30,11 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeService.createEmployee(employeeDto), HttpStatus.CREATED);
     }
 
+    @GetMapping("/{email}")
+    public ResponseEntity<EmployeeResponseDto> findEmployeeByEmail(@PathVariable String email) {
+        return ResponseEntity.ok(employeeService.findByEmail(email));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<EmployeeResponseDto> findEmployeeById(@PathVariable() Long id) {
         return ResponseEntity.ok(employeeService.getEmployeeById(id));
