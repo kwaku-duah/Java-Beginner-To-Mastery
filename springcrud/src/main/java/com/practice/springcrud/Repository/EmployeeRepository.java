@@ -1,5 +1,7 @@
 package com.practice.springcrud.Repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.practice.springcrud.Entity.Employee;
 
@@ -10,4 +12,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
      * so boolean existsByEmail(String email)
      * boolean existsByPhoneNumber(String phoneNumber) 
      */
+    //unique fields, so best use is Optional container, returns one or gracefull error handling
+    Optional<Employee> findByEmail(String email);
 }
