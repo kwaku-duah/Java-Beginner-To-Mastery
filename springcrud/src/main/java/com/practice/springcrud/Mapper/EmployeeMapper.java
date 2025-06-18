@@ -8,6 +8,7 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import com.practice.springcrud.DTO.EmployeeRequestDto;
 import com.practice.springcrud.DTO.EmployeeResponseDto;
+import com.practice.springcrud.DTO.PartialEmployeeRequestDto;
 import com.practice.springcrud.Entity.Employee;
 
 /*
@@ -28,6 +29,7 @@ public interface EmployeeMapper {
     /*
      * this method takes an employeerequest returns an employee object
      * created from employee entity
+     * 
      * @Mapping annotation takes away a warning in java
      */
     @Mapping(target = "id", ignore = true)
@@ -37,7 +39,7 @@ public interface EmployeeMapper {
      * takes an employee object (entity and then
      * returns only fields defined in the response)
      */
-    
+
     EmployeeResponseDto toResponseDto(Employee employee);
 
     /*
@@ -49,11 +51,27 @@ public interface EmployeeMapper {
      * and preserve the old data
      */
 
-    
+    @Mapping(target = "id", ignore = true)
+    Employee toPartialDto(PartialEmployeeRequestDto dto);
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    /*
+     * EmployeeRequestDto already have validation annotations for fields like
+     * notblank , size so, it won't reach this section
+     * 
+     */
     @Mapping(target = "id", ignore = true)
     void updateExistingUserFromDto(EmployeeRequestDto dto, @MappingTarget Employee employee);
+
+
+    /*
+     * There is no validation for the for the partialemployeerequestdto
+     * this allows passed data to reach this method and then from the source if there
+     * are fields with null, the BeanMapping simply instructs mapstruct to not replace
+     * the existing fields with null
+     */
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "id", ignore = true)
+    void updatePartialEmployeeFromDto(PartialEmployeeRequestDto dto, @MappingTarget Employee employee);
 }
 
 // this binds the entity to the DTO
