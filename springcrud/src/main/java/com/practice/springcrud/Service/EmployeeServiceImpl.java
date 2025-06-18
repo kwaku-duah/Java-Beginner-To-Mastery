@@ -89,4 +89,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeMapper.toResponseDto(updated);
     }
 
+    /*
+     * find employee by email
+     */
+    @Override
+    public EmployeeResponseDto findByEmail(String email) {
+        Employee employee = employeeRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee with email", "email", email));
+        return employeeMapper.toResponseDto(employee);
+    }
+
 }
