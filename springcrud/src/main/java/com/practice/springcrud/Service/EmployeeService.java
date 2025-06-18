@@ -36,4 +36,9 @@ public interface EmployeeService {
      * delete an employee by id
      */
     void deleteEmployee(Long id);
+
+    /*
+     * find employee by email, interface addition
+     */
+    EmployeeResponseDto findByEmail(String email);
 }
