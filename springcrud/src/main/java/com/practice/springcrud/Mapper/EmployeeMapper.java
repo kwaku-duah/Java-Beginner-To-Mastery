@@ -41,13 +41,15 @@ public interface EmployeeMapper {
     EmployeeResponseDto toResponseDto(Employee employee);
 
     /*
-     * records do work well with partial data, for existing fields, if you
+     * records dont work well with partial data, for existing fields, if you
      * updating it, to prevent the writeup to overrite already parts with
      * null, you must add the annotaion nullValuePropertyMappingStrategy
      * 
      * when partial data comes from the dto,with some null, this helps it to skip it
      * and preserve the old data
      */
+
+    
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "id", ignore = true)

@@ -14,4 +14,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiResponse> resourceHandleNotFound(ResourceNotFoundException ex) {
         return new ResponseEntity<>(new ApiResponse(false, ex.getMessage()), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(UnAuthorizedException.class)
+    public ResponseEntity<ApiResponse> UnAuthorizedException(UnAuthorizedException ex) {
+        return new ResponseEntity<>(new ApiResponse(false, "You are not authorized"), HttpStatus.FORBIDDEN);
+    }
 }
