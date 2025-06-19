@@ -8,10 +8,12 @@ import com.practice.springcrud.DTO.EmployeeRequestDto;
 import com.practice.springcrud.DTO.EmployeeResponseDto;
 import com.practice.springcrud.DTO.PartialEmployeeRequestDto;
 import com.practice.springcrud.Entity.Employee;
+import com.practice.springcrud.Entity.EmployeeStatus;
 import com.practice.springcrud.Exception.ResourceNotFoundException;
 import com.practice.springcrud.Mapper.EmployeeMapper;
 import com.practice.springcrud.Repository.EmployeeRepository;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 /*
@@ -76,27 +78,41 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     // @Override
     // public void deleteEmployee(Long id) {
-    //     if (!employeeRepository.existsById(id)) {
-    //         throw new ResourceNotFoundException("Employee", "ID", id);
-    //     }
-    //     employeeRepository.deleteById(id);
+    // if (!employeeRepository.existsById(id)) {
+    // throw new ResourceNotFoundException("Employee", "ID", id);
+    // }
+    // employeeRepository.deleteById(id);
     // }
 
     /*
-     * always prioritize one db hit, if more than hit, I should add @Transaction annotation
+     * always prioritize one db hit, if more than hit, I should add @Transaction
+     * annotation
      * this also perfectly handles error gracefully
      * 
      */
 
     @Override
-    public void deleteEmployee(Long id){
+    public void deleteEmployee(Long id) {
         Employee employee = employeeRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Employee Deleted", "id", id));
+                .orElseThrow(() -> new ResourceNotFoundException("Employee Deleted", "id", id));
 
         employeeRepository.delete(employee);
     }
 
+    /*
+     * soft delete business logic, find the employee by id
+     * then sets their field to deleted,
+     * more than one database call, so using @transaction
+     */
+    @Override
+    @Transactional
+    public void softDelete(Long id) {
+        Employee employee = employeeRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Employee", "with ", id));
 
+        employee.setStatus(EmployeeStatus.DELETED);
+        employeeRepository.save(employee);
+    }
 
     @Override
     public EmployeeResponseDto updateEmployee(Long id, EmployeeRequestDto dto) {

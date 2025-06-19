@@ -47,4 +47,9 @@ public interface EmployeeService {
      * with only some data and not all
      */
     EmployeeResponseDto partialUpdate(Long id, PartialEmployeeRequestDto dto);
+
+    /*
+     * soft delete to follow standard practices
+     */
+    void softDelete(Long id);
 }

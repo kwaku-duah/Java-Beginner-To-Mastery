@@ -1,5 +1,7 @@
 package com.practice.springcrud.DTO;
 
+import com.practice.springcrud.Entity.EmployeeStatus;
+
 /*
  * employee response dto
  * gives modular control where I can decide fields that should go to the frontend
@@ -11,6 +13,7 @@ public record EmployeeResponseDto(
     String firstName,
     String lastName,
     String email,
-    Double salary
+    Double salary,
+    EmployeeStatus status
     //phoneNumber is intentionally hidden from response
 ) {}

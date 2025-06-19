@@ -62,7 +62,18 @@ public class EmployeeController {
      * put resources updates whole resource
      */
     @PatchMapping("/{id}")
-    public ResponseEntity<EmployeeResponseDto> partialEmployeeUpdate(@PathVariable Long id, @RequestBody PartialEmployeeRequestDto dto){
+    public ResponseEntity<EmployeeResponseDto> partialEmployeeUpdate(@PathVariable Long id,
+            @RequestBody PartialEmployeeRequestDto dto) {
         return ResponseEntity.ok(employeeService.partialUpdate(id, dto));
+    }
+
+    /*
+     * implementation of REST API endpoint for softdelete
+     * following world class practices
+     */
+    @DeleteMapping("/soft-delete/{id}")
+    public ResponseEntity<ApiResponse> softEmployeeDelete(@PathVariable Long id) {
+        employeeService.softDelete(id);
+        return ResponseEntity.ok(new ApiResponse(true, "Employee Successfully removed"));
     }
 }

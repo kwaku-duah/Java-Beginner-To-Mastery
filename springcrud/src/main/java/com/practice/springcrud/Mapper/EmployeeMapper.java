@@ -32,7 +32,8 @@ public interface EmployeeMapper {
      * 
      * @Mapping annotation takes away a warning in java
      */
-    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "id" , ignore = true)
+    @Mapping(target = "status", ignore = true)
     Employee toEntity(EmployeeRequestDto dto);
 
     /*
@@ -52,6 +53,7 @@ public interface EmployeeMapper {
      */
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "status", ignore = true)
     Employee toPartialDto(PartialEmployeeRequestDto dto);
 
     /*
@@ -60,6 +62,7 @@ public interface EmployeeMapper {
      * 
      */
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "status", ignore = true)
     void updateExistingUserFromDto(EmployeeRequestDto dto, @MappingTarget Employee employee);
 
     /*
@@ -72,6 +75,7 @@ public interface EmployeeMapper {
      */
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "status", ignore = true)
     void partialEmployeeFromDto(PartialEmployeeRequestDto dto, @MappingTarget Employee employee);
 }
 

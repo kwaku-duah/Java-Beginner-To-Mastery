@@ -49,4 +49,8 @@ public class Employee {
 
     @Column(nullable = false, unique = true)
     private String phoneNumber;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private EmployeeStatus status = EmployeeStatus.ACTIVE;
 }
