@@ -9,6 +9,7 @@ import com.practice.springcrud.DTO.EmployeeResponseDto;
 import com.practice.springcrud.DTO.PartialEmployeeRequestDto;
 import com.practice.springcrud.Entity.Employee;
 import com.practice.springcrud.Entity.EmployeeStatus;
+import com.practice.springcrud.Exception.DuplicateResourceException;
 import com.practice.springcrud.Exception.ResourceNotFoundException;
 import com.practice.springcrud.Mapper.EmployeeMapper;
 import com.practice.springcrud.Repository.EmployeeRepository;
@@ -37,11 +38,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeMapper employeeMapper;
     /*
-     * createuser business logic
+     * createuser business logic,  error handling logic
      */
 
     @Override
     public EmployeeResponseDto createEmployee(EmployeeRequestDto dto) {
+        
+        if (employeeRepository.existsByEmailOrPhoneNumber(dto.email(), dto.phoneNumber())) {
+            throw new DuplicateResourceException("Email or phone number already exists");
+        }
+
         Employee employee = employeeMapper.toEntity(dto);
         return employeeMapper.toResponseDto(employeeRepository.save(employee));
     }
@@ -76,6 +82,7 @@ public class EmployeeServiceImpl implements EmployeeService {
          */
     }
 
+    /* not efficient, multiple db hits */
     // @Override
     // public void deleteEmployee(Long id) {
     // if (!employeeRepository.existsById(id)) {
@@ -108,7 +115,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Transactional
     public void softDelete(Long id) {
         Employee employee = employeeRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Employee", "with ", id));
+                .orElseThrow(() -> new ResourceNotFoundException("Employee", "with ", id));
 
         employee.setStatus(EmployeeStatus.DELETED);
         employeeRepository.save(employee);

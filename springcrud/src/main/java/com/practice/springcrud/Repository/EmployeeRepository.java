@@ -14,4 +14,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
      */
     //unique fields, so best use is Optional container, returns one or gracefull error handling
     Optional<Employee> findByEmail(String email);
+
+    /*
+     * composite check to handle duplication errors
+     */
+    boolean existsByEmailOrPhoneNumber(String email, String phoneNumber);
 }

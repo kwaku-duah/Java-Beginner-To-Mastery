@@ -24,7 +24,7 @@ import lombok.*;
  */
 
 @Entity
-@Table(name = "employees")
+@Table(name = "dataemployees")
 @Getter
 @Setter
 @AllArgsConstructor
