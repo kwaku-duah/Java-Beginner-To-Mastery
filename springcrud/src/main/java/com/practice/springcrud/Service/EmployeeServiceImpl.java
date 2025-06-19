@@ -74,10 +74,29 @@ public class EmployeeServiceImpl implements EmployeeService {
          */
     }
 
+    // @Override
+    // public void deleteEmployee(Long id) {
+    //     if (!employeeRepository.existsById(id)) {
+    //         throw new ResourceNotFoundException("Employee", "ID", id);
+    //     }
+    //     employeeRepository.deleteById(id);
+    // }
+
+    /*
+     * always prioritize one db hit, if more than hit, I should add @Transaction annotation
+     * this also perfectly handles error gracefully
+     * 
+     */
+
     @Override
-    public void deleteEmployee(Long id) {
-        employeeRepository.deleteById(id);
+    public void deleteEmployee(Long id){
+        Employee employee = employeeRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Employee Deleted", "id", id));
+
+        employeeRepository.delete(employee);
     }
+
+
 
     @Override
     public EmployeeResponseDto updateEmployee(Long id, EmployeeRequestDto dto) {

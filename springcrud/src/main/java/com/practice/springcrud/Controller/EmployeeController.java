@@ -30,7 +30,7 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeService.createEmployee(employeeDto), HttpStatus.CREATED);
     }
 
-    @GetMapping("/{email}")
+    @GetMapping("/email/{email}")
     public ResponseEntity<EmployeeResponseDto> findEmployeeByEmail(@PathVariable String email) {
         return ResponseEntity.ok(employeeService.findByEmail(email));
     }
@@ -55,5 +55,14 @@ public class EmployeeController {
     public ResponseEntity<ApiResponse> deleteEmployee(@PathVariable() Long id) {
         employeeService.deleteEmployee(id);
         return ResponseEntity.ok(new ApiResponse(true, "Employee details has been removed succesfully!"));
+    }
+
+    /*
+     * patch mapping has flexibility of updating part of a resource
+     * put resources updates whole resource
+     */
+    @PatchMapping("/{id}")
+    public ResponseEntity<EmployeeResponseDto> partialEmployeeUpdate(@PathVariable Long id, @RequestBody PartialEmployeeRequestDto dto){
+        return ResponseEntity.ok(employeeService.partialUpdate(id, dto));
     }
 }
