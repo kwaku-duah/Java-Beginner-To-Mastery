@@ -1,5 +1,8 @@
 package com.practice.springcrud.DTO;
 
+import java.util.Set;
+
+import com.practice.springcrud.Entity.EmployeeRoleName;
 import com.practice.springcrud.Entity.EmployeeStatus;
 
 /*
@@ -14,6 +17,7 @@ public record EmployeeResponseDto(
     String lastName,
     String email,
     Double salary,
-    EmployeeStatus status
+    EmployeeStatus status,
+    Set<EmployeeRoleName> roles
     //phoneNumber is intentionally hidden from response
 ) {}

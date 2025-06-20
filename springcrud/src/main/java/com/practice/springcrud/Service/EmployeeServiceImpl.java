@@ -1,18 +1,21 @@
 package com.practice.springcrud.Service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
 import com.practice.springcrud.DTO.EmployeeRequestDto;
 import com.practice.springcrud.DTO.EmployeeResponseDto;
 import com.practice.springcrud.DTO.PartialEmployeeRequestDto;
-import com.practice.springcrud.Entity.Employee;
+import com.practice.springcrud.Entity.*;
+import com.practice.springcrud.Entity.EmployeeRoleName;
 import com.practice.springcrud.Entity.EmployeeStatus;
 import com.practice.springcrud.Exception.DuplicateResourceException;
 import com.practice.springcrud.Exception.ResourceNotFoundException;
 import com.practice.springcrud.Mapper.EmployeeMapper;
 import com.practice.springcrud.Repository.EmployeeRepository;
+import com.practice.springcrud.Repository.RoleRepository;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -37,16 +40,65 @@ public class EmployeeServiceImpl implements EmployeeService {
      */
 
     private final EmployeeMapper employeeMapper;
+
+
+    /* role assignment 
+     * 
+     */
+
+    private final RoleRepository roleRepository;
     /*
      * createuser business logic,  error handling logic
      */
 
+    @Override
+    public EmployeeResponseDto createExecutive(EmployeeRequestDto dto) {
+        if (employeeRepository.existsByEmailOrPhoneNumber(dto.email(), dto.phoneNumber())) {
+            throw new DuplicateResourceException("Email or phone number already exists");
+        }
+
+        Employee employee = employeeMapper.toEntity(dto);
+
+        Role executiveRole = roleRepository.findByRoleName(EmployeeRoleName.ROLE_EXECUTIVE)
+            .orElseThrow(() -> new ResourceNotFoundException("Role", "name", EmployeeRoleName.ROLE_EXECUTIVE));
+
+        employee.setRoles(Set.of(executiveRole));
+
+        return employeeMapper.toResponseDto(employeeRepository.save(employee));
+
+    }
+
+
+     /*
+      * role repository to fully assign roles at the backend
+
+      */
+
+    @Override
+    public EmployeeResponseDto createThirdParty(EmployeeRequestDto dto) {
+        if (employeeRepository.existsByEmailOrPhoneNumber(dto.email(), dto.phoneNumber())) {
+            throw new DuplicateResourceException("Email or Phone number already exists");
+        }
+
+        Employee employee = employeeMapper.toEntity(dto);
+
+        Role thirdPartyRole = roleRepository.findByRoleName(EmployeeRoleName.ROLE_THIRDPARTY)
+            .orElseThrow(()-> new ResourceNotFoundException("Role", "name", EmployeeRoleName.ROLE_THIRDPARTY));
+    
+        employee.setRoles(Set.of(thirdPartyRole));
+
+        return employeeMapper.toResponseDto(employeeRepository.save(employee));
+    }
+
+
+    
     @Override
     public EmployeeResponseDto createEmployee(EmployeeRequestDto dto) {
         
         if (employeeRepository.existsByEmailOrPhoneNumber(dto.email(), dto.phoneNumber())) {
             throw new DuplicateResourceException("Email or phone number already exists");
         }
+
 
         Employee employee = employeeMapper.toEntity(dto);
         return employeeMapper.toResponseDto(employeeRepository.save(employee));

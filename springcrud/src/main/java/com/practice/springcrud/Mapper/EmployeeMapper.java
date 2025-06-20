@@ -1,5 +1,8 @@
 package com.practice.springcrud.Mapper;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -10,6 +13,8 @@ import com.practice.springcrud.DTO.EmployeeRequestDto;
 import com.practice.springcrud.DTO.EmployeeResponseDto;
 import com.practice.springcrud.DTO.PartialEmployeeRequestDto;
 import com.practice.springcrud.Entity.Employee;
+import com.practice.springcrud.Entity.EmployeeRoleName;
+import com.practice.springcrud.Entity.Role;
 
 /*
  * mapper class or interface is responsible for converting between 
@@ -32,8 +37,9 @@ public interface EmployeeMapper {
      * 
      * @Mapping annotation takes away a warning in java
      */
-    @Mapping(target = "id" , ignore = true)
+    @Mapping(target = "id", ignore = true)
     @Mapping(target = "status", ignore = true)
+    @Mapping(target = "roles", ignore = true)
     Employee toEntity(EmployeeRequestDto dto);
 
     /*
@@ -41,6 +47,7 @@ public interface EmployeeMapper {
      * returns only fields defined in the response)
      */
 
+    @Mapping(target = "roles", expression = "java(mapRoles(employee.getRoles()))")
     EmployeeResponseDto toResponseDto(Employee employee);
 
     /*
@@ -54,6 +61,7 @@ public interface EmployeeMapper {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "status", ignore = true)
+    @Mapping(target = "roles", ignore = true)
     Employee toPartialDto(PartialEmployeeRequestDto dto);
 
     /*
@@ -63,6 +71,7 @@ public interface EmployeeMapper {
      */
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "status", ignore = true)
+    @Mapping(target = "roles", ignore = true)
     void updateExistingUserFromDto(EmployeeRequestDto dto, @MappingTarget Employee employee);
 
     /*
@@ -76,7 +85,14 @@ public interface EmployeeMapper {
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "status", ignore = true)
+    @Mapping(target = "roles", ignore = true)
     void partialEmployeeFromDto(PartialEmployeeRequestDto dto, @MappingTarget Employee employee);
+
+    default Set<EmployeeRoleName> mapRoles(Set<Role> roles) {
+        if (roles == null)
+            return Set.of();
+        return roles.stream().map(Role::getRoleName).collect(Collectors.toSet());
+    }
 }
 
 // this binds the entity to the DTO

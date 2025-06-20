@@ -17,6 +17,16 @@ public interface EmployeeService {
     EmployeeResponseDto createEmployee(EmployeeRequestDto dto);
 
     /*
+     * create employee with role executive
+     */
+    EmployeeResponseDto createExecutive(EmployeeRequestDto dto);
+
+    /*
+     * create employee with role thirdparty
+     */
+
+    EmployeeResponseDto createThirdParty(EmployeeRequestDto dto);
+    /*
      * find employee by id
      */
     EmployeeResponseDto getEmployeeById(Long id);
@@ -43,7 +53,8 @@ public interface EmployeeService {
      */
     EmployeeResponseDto findByEmail(String email);
 
-    /*partial update of employee
+    /*
+     * partial update of employee
      * with only some data and not all
      */
     EmployeeResponseDto partialUpdate(Long id, PartialEmployeeRequestDto dto);

@@ -30,6 +30,16 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeService.createEmployee(employeeDto), HttpStatus.CREATED);
     }
 
+    @PostMapping("/executive")
+    public ResponseEntity<EmployeeResponseDto> createEmployeeExecutive(@RequestBody @Valid EmployeeRequestDto dto) {
+        return new ResponseEntity<>(employeeService.createExecutive(dto), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/third-party")
+    public ResponseEntity<EmployeeResponseDto> createThirdPartyEmployee(@RequestBody @Valid EmployeeRequestDto dto) {
+        return new ResponseEntity<>(employeeService.createThirdParty(dto), HttpStatus.CREATED);
+    }
+
     @GetMapping("/email/{email}")
     public ResponseEntity<EmployeeResponseDto> findEmployeeByEmail(@PathVariable String email) {
         return ResponseEntity.ok(employeeService.findByEmail(email));

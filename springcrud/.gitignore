@@ -38,3 +38,4 @@ build/
 
 ## resource folder
 src/main/resources/application.properties
+src/main/resources/application.yml
