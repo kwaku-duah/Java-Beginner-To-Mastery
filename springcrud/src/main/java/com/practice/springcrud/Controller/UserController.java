@@ -26,7 +26,7 @@ import lombok.RequiredArgsConstructor;
  */
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/users")
+@RequestMapping("api/v1/users")
 public class UserController {
     /*
      * depends on the userservice to function, receiving http requests
